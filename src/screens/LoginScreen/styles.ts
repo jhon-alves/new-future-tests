@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { Platform, StatusBar } from 'react-native';
+import { BottomSheetTextInput } from '@gorhom/bottom-sheet';
 
 const isAndroid = Platform.OS === 'android';
 
@@ -19,6 +20,16 @@ export const Footer = styled.View`
   padding: 16px 24px;
 `;
 
-export const FooterContainer = styled.SafeAreaView`
+export const FooterContainer = styled.SafeAreaView``;
 
+export const Form = styled.View`
+  margin-top: 32px;
+  padding: 0 20px;
+`;
+
+export const Input = styled(BottomSheetTextInput)`
+  background: #fff;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  padding: 16px;
+  margin-bottom: 24px;
 `;

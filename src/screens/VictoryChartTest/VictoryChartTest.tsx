@@ -14,6 +14,7 @@ export const VictoryChartTest = () => {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <VictoryChart
         domainPadding={{ y: 10 }}
+        padding={{ left: 0, top: 20, right: 0, bottom: 0 }}
         containerComponent={
           <VictoryVoronoiContainer
             voronoiDimension="x"

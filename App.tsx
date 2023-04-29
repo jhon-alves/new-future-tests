@@ -1,6 +1,6 @@
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
-import { VictoryChartTest } from './src/screens';
+import { LoginScreen } from './src/screens';
 
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
@@ -19,7 +19,7 @@ export default function App() {
   return (
     <>
       <StatusBar style="dark" />
-      <VictoryChartTest />
+      <LoginScreen />
     </>
   );
 }
