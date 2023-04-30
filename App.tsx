@@ -1,9 +1,10 @@
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
-import { LoginScreen } from './src/screens';
-
+import { NavigationContainer } from '@react-navigation/native';
+import { StackNavigation } from './src/navigation';
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
+import 'react-native-gesture-handler';
 
 export default function App() {
   const [isFontsLoaded] = useFonts({
@@ -19,7 +20,9 @@ export default function App() {
   return (
     <>
       <StatusBar style="dark" />
-      <LoginScreen />
+      <NavigationContainer>
+        <StackNavigation />
+      </NavigationContainer>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import { Platform, StatusBar } from 'react-native';
-import { BottomSheetTextInput } from '@gorhom/bottom-sheet';
+import { BottomSheetView, BottomSheetTextInput } from '@gorhom/bottom-sheet';
+import { Text } from '../../components/Text';
 
 const isAndroid = Platform.OS === 'android';
 
@@ -27,9 +28,19 @@ export const Form = styled.View`
   padding: 0 20px;
 `;
 
+export const SheetContainer = styled(BottomSheetView)`
+  flex: 1;
+  align-items: stretch;
+  justify-content: center;
+`;
+
 export const Input = styled(BottomSheetTextInput)`
   background: #fff;
   border: 1px solid rgba(204, 204, 204, 0.5);
   padding: 16px;
   margin-bottom: 24px;
+`;
+
+export const SheetText = styled(Text)`
+  text-align: center;
 `;

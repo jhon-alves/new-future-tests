@@ -1,22 +1,21 @@
 import React, { useState, useCallback, useRef } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 import {
   Container,
   HeaderContent,
   Footer,
   FooterContainer,
   Form,
-  Input
+  Input,
+  SheetContainer,
+  SheetText
 } from './styles';
-
 import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
-import { Text } from '../../components/Text';
-import BottomSheet, {
-  BottomSheetView,
-  BottomSheetBackdrop
-} from '@gorhom/bottom-sheet';
 
 export function LoginScreen() {
+  const navigation = useNavigation();
   const snapPoints = ["50%"];
   const sheetRef = useRef<BottomSheet>(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -24,10 +23,6 @@ export function LoginScreen() {
   const handleSnapPress = useCallback((index: number) => {
     sheetRef.current?.snapToIndex(index);
     setIsOpen(!isOpen);
-  }, []);
-
-  const handleClosePress = useCallback(() => {
-    sheetRef.current?.close();
   }, []);
 
   const renderBackdrop = useCallback((props: any) => (
@@ -62,16 +57,24 @@ export function LoginScreen() {
         backdropComponent={renderBackdrop}
         onClose={() => setIsOpen(!isOpen)}
       >
-        <BottomSheetView>
-          <Text size={22} weight="600">Acesse o app</Text>
+        <SheetContainer>
+          <SheetText size={22} weight="600">Acesse o app</SheetText>
           <Form>
-            <Input placeholder="E-mail" />
-            <Input placeholder="Senha" />
-            <Button onPress={handleClosePress}>
+            <Input
+              placeholder="E-mail"
+              inputMode="email"
+              autoCapitalize="none"
+            />
+            <Input
+              placeholder="Senha"
+              autoCapitalize="none"
+            />
+            <Button onPress={() => navigation.navigate('Home')}>
               Entrar
             </Button>
+            <SheetText size={12}>Esqueci a senha</SheetText>
           </Form>
-        </BottomSheetView>
+        </SheetContainer>
       </BottomSheet>
     </Container>
   );
