@@ -1,5 +1,6 @@
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
+import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { StackNavigation } from './src/navigation';
 import 'intl';
@@ -20,9 +21,11 @@ export default function App() {
   return (
     <>
       <StatusBar style="dark" />
-      <NavigationContainer>
-        <StackNavigation />
-      </NavigationContainer>
+      <PaperProvider>
+        <NavigationContainer>
+          <StackNavigation />
+        </NavigationContainer>
+      </PaperProvider>
     </>
   );
 }

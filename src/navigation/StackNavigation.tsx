@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { DrawerNavigation } from './DrawerNavigation';
 import {
   LoginScreen,
-  VictoryChartTest
+  GraphScreen
 } from '../screens';
 import { TRootStackParamList } from './types';
 
@@ -28,7 +28,7 @@ export function StackNavigation() {
       />
       <Screen
         name="VictoryChart"
-        component={VictoryChartTest}
+        component={GraphScreen}
       />
     </Navigator>
   );
